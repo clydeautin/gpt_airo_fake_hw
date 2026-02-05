@@ -9,6 +9,7 @@ load_dotenv()
 #initialize the client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+#helps us load files from an outside file
 def load_messages_from_file(path: str) -> list[dict]:
     file_path = Path(path)
 
@@ -66,7 +67,7 @@ def classify_msg(message, model="gpt-4o-mini"):
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": message}
         ],
-        temperature=0.5,
+        temperature=0.5, # low but not too low becasue we still want the LLM to explain reasoning
         response_format={"type": "json_object"}
     )
 
@@ -77,6 +78,7 @@ if __name__ == "__main__":
     for msg in cust_message:
         result = classify_msg(msg["text"])
 
+        #manually adds the message id back into the json result instead of sending it to the LLM
         output = {
             "id": msg["id"],
             **result
