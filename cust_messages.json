@@ -1,0 +1,14 @@
+[
+  {
+    "id": "msg_001",
+    "text": "Hey, we're evaluating your platform for our sales team. Can you explain pricing and security?"
+  },
+  {
+    "id": "msg_002",
+    "text": "The webhook integration broke after we rotated our API keys."
+  },
+  {
+    "id": "msg_003",
+    "text": "Just wanted to say the new dashboard looks great!"
+  }
+]
